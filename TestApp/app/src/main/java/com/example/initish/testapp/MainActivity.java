@@ -1,7 +1,8 @@
 package com.example.initish.testapp;
 
+import android.content.Context;
 import android.content.Intent;
-import android.os.IInterface;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.initish.testapp.employer.EmployerLogin;
+import com.example.initish.testapp.employer.emp_home;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     GoogleSignInClient mGoogleSignInClient;
     Button button,register;
     FirebaseAuth.AuthStateListener mAuthListener;
+    public SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,15 +58,21 @@ public class MainActivity extends AppCompatActivity {
         button=findViewById(R.id.button);
         register=findViewById(R.id.register);
 
+        sharedPreferences=this.getSharedPreferences("com.example.initish.testapp",Context.MODE_PRIVATE);
+
+
         progressBarLogin=findViewById(R.id.progressBarLogin);
-        SignInButton signInButton = findViewById(R.id.sign_in_button);
+        SignInButton signInButton = findViewById(R.id.signin_button);
 
         mAuth = FirebaseAuth.getInstance();
 
         if (mAuth.getCurrentUser() != null) {
             //profile activity here
             finish();
-            startActivity(new Intent(getApplicationContext(), Discussion.class));
+            if(sharedPreferences.getInt("activity",0)==1)
+             startActivity(new Intent(getApplicationContext(), Discussion.class));
+           else
+               startActivity(new Intent(getApplicationContext(),emp_home.class));
         }
 
 
@@ -103,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.sign_in_button:
+            case R.id.signin_button:
                 signIn();
                 break;
         }
@@ -120,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account);
+                sharedPreferences.edit().putInt("activity",1).apply();
                 startActivity(new Intent(getApplicationContext(), Discussion.class));
             } catch (ApiException e) {
 

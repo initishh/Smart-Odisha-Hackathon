@@ -33,7 +33,10 @@
             android:windowSoftInputMode="stateVisible" />
         <activity android:name=".Post_discussion" />
         <activity android:name=".employer.EmployerLogin" />
-        <activity android:name=".Writ"></activity>
+        <activity android:name=".Writ" />
+        <activity android:name=".employer.emp_home" />
+        <activity android:name=".employer.Emp_signUp" />
+        <activity android:name=".employer.Emp_details"></activity>
     </application>
 
 </manifest>
