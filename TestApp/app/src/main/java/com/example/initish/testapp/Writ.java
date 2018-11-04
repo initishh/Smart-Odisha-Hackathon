@@ -24,7 +24,6 @@ public class Writ extends AppCompatActivity {
     EditText comment_add;
     Context context;
     String titleid;
-
     FirebaseFirestore db=FirebaseFirestore.getInstance();
 
     @Override
@@ -39,7 +38,7 @@ public class Writ extends AppCompatActivity {
         }
 
         titleid=getIntent().getStringExtra("TITLEID");
-
+        Toast.makeText(Writ.this, titleid, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -64,22 +63,24 @@ public class Writ extends AppCompatActivity {
             comment.setPhoto_url(photoUrl);
             comment.setUsername(UserName);
 
-            db.collection("posts").document(titleid).set(comment).addOnCompleteListener(new OnCompleteListener<Void>() {
+            db.collection("posts").document(titleid).collection("comments").document().set(comment).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
 
                     if(task.isSuccessful()){
-                        startActivity(new Intent(getApplication(),Post_discussion.class));
-                        Toast.makeText(getApplicationContext(),"Question has been posted",Toast.LENGTH_SHORT).show();
+
+                        Intent intent = new Intent(getApplicationContext(), Post_discussion.class);
+                        intent.putExtra("TITLE_ID", titleid);
+                        startActivity(intent);
+                        Toast.makeText(getApplicationContext(),"Your comments has been posted",Toast.LENGTH_SHORT).show();
                     }
                     else{
                         Toast.makeText(getApplicationContext(),"Problem here!",Toast.LENGTH_SHORT).show();
                     }
-
                 }
             });
-
         }
+
         return super.onOptionsItemSelected(item);
     }
 }

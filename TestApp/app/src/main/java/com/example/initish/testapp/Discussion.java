@@ -103,9 +103,6 @@ public class Discussion extends AppCompatActivity implements IMainActivity{
 
         });
 
-        adapter=new Adapter(this,itemList);
-        mRecyclerView.setAdapter(adapter);
-
     }
 
     @Override

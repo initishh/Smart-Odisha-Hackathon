@@ -23,7 +23,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.viewHold
     Context mContext;
     List<Comment> comments=new ArrayList<>();
 
-    java.text.DateFormat dateFormat = new SimpleDateFormat("hh:mm  dd-mm-yyyy ");
+    java.text.DateFormat dateFormat = new SimpleDateFormat("hh:mm  dd-mm-yyyy");
 
     public CommentAdapter(Context mContext, List<Comment> comments) {
         this.mContext = mContext;
@@ -36,7 +36,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.viewHold
 
         LayoutInflater mInflater=LayoutInflater.from(mContext);
         View v=mInflater.inflate(R.layout.comments_layout,viewGroup,false);
-        return null;
+        return new viewHolder(v);
     }
 
     @Override

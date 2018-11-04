@@ -34,7 +34,6 @@ public class AddQuestion extends AppCompatActivity {
     ProgressBar loading;
 
     FirebaseFirestore db=FirebaseFirestore.getInstance();
-
     DocumentReference mDocref=db.collection("posts").document();
 
     @Override
@@ -89,12 +88,12 @@ public class AddQuestion extends AppCompatActivity {
             item1.setDesc(descText);
             item1.setTitle_id(mDocref.getId());
             item1.setUsername(UserName);
-
             mDocref.set(item1).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
 
                     if(task.isSuccessful()){
+                        mDocref.collection("comments").document();
                         loading.setVisibility(View.INVISIBLE);
                         startActivity(new Intent(getApplication(),Discussion.class));
                         Toast.makeText(getApplicationContext(),"Question has been posted",Toast.LENGTH_SHORT).show();

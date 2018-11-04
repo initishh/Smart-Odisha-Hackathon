@@ -1,5 +1,6 @@
 package com.example.initish.testapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,7 +29,9 @@ public class Post_discussion extends AppCompatActivity {
     List<Comment> commentsList=new ArrayList<>();
     TextView title_text,desc_text,usertext;
     EditText comment_text;
+    Context context;
     ImageView ask_pic;
+    RecyclerView.Adapter adapter;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
@@ -43,10 +46,28 @@ public class Post_discussion extends AppCompatActivity {
         ask_pic=findViewById(R.id.ask_pic);
         comment_text=findViewById(R.id.comment_text);
 
+        comment_rcview=findViewById(R.id.comment_rcview);
+        comment_rcview.setLayoutManager(new LinearLayoutManager(this));
+
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         final String title_id = getIntent().getStringExtra("TITLE_ID");
-        Toast.makeText(this, title_id, Toast.LENGTH_SHORT).show();
+        db.collection("posts/"+title_id+"/comments").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                if(!queryDocumentSnapshots.isEmpty()){
+                    List<DocumentSnapshot> list=queryDocumentSnapshots.getDocuments();
+                    for(DocumentSnapshot d:list){
+                        Comment comment=d.toObject(Comment.class);
+                        commentsList.add(comment);
+                    }
+
+                    adapter=new CommentAdapter(Post_discussion.this,commentsList);
+                    comment_rcview.setAdapter(adapter);
+                }
+                adapter.notifyDataSetChanged();
+            }
+        });
 
         comment_rcview=findViewById(R.id.comment_rcview);
         final CommentAdapter adapter=new CommentAdapter(this,commentsList);
@@ -62,7 +83,6 @@ public class Post_discussion extends AppCompatActivity {
                     for(DocumentSnapshot d:list)
                     {
                         Item item=d.toObject(Item.class);
-                        Log.i("title",title_id);
                         if(title_id.equals(item.getTitle_id())){
 
                            title_text.setText(item.getQuery());
@@ -83,8 +103,9 @@ public class Post_discussion extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
-
+                  Intent intent=new Intent(Post_discussion.this,Writ.class);
+                  intent.putExtra("TITLEID",title_id);
+                  startActivity(intent);
             }
         });
 

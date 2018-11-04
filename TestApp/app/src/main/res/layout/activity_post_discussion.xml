@@ -98,8 +98,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:text="TextView"
         android:textSize="5sp"
+        app:layout_constraintBottom_toTopOf="@+id/comment_rcview"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/comment_pic" />
@@ -107,11 +109,10 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/comment_rcview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_height="371dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/comment_text"></android.support.v7.widget.RecyclerView>
+        app:layout_constraintStart_toStartOf="parent"></android.support.v7.widget.RecyclerView>
 
 </android.support.constraint.ConstraintLayout>
