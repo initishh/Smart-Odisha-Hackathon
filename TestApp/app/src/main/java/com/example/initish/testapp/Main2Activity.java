@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class Main2Activity extends AppCompatActivity {
@@ -125,15 +126,29 @@ public class Main2Activity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+
+            switch (position){
+                case 0:
+                    Skill skill=new Skill();
+                    return skill;
+                case 1:
+                    Jobss jobss=new Jobss();
+                    return jobss;
+                case 2:
+                    Discussion discussion=new Discussion();
+                    return discussion;
+                case 3:
+                    Profile profile=new Profile();
+                    return profile;
+            }
+            return null;
+
         }
 
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 3;
+            return 4;
         }
     }
 }

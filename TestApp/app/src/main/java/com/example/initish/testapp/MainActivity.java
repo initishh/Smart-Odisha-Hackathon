@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             //profile activity here
             finish();
             if(sharedPreferences.getInt("activity",0)==1)
-             startActivity(new Intent(getApplicationContext(), Discussion.class));
+             startActivity(new Intent(getApplicationContext(), Main2Activity.class));
            else
                startActivity(new Intent(getApplicationContext(),emp_home.class));
         }
@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account);
                 sharedPreferences.edit().putInt("activity",1).apply();
-                startActivity(new Intent(getApplicationContext(), Discussion.class));
+                startActivity(new Intent(getApplicationContext(), Main2Activity.class));
             } catch (ApiException e) {
 
                 Log.w("Message", "Google sign in failed", e);
@@ -152,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
                             Log.d("info", "signInWithCredential:success");
                             finish();
                             FirebaseUser user = mAuth.getCurrentUser();
-                            startActivity(new Intent(getApplicationContext(), Discussion.class));
+                            startActivity(new Intent(getApplicationContext(), Main2Activity.class));
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("info", "signInWithCredential:failure", task.getException());
@@ -170,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
             // Signed in successfully, show authenticated UI.
-            startActivity(new Intent(getApplicationContext(),Discussion.class));
+            startActivity(new Intent(getApplicationContext(),Main2Activity.class));
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
 
                            Log.d("Message", "signInWithEmail:success");
                            FirebaseUser user = mAuth.getCurrentUser();
-                           Intent intent=new Intent(getApplicationContext(),Discussion.class);
+                           Intent intent=new Intent(getApplicationContext(),Main2Activity.class);
                            startActivity(intent);
                        } else {
                            progressBarLogin.setVisibility(View.INVISIBLE);
