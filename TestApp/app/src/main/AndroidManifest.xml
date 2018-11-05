@@ -36,7 +36,13 @@
         <activity android:name=".Writ" />
         <activity android:name=".employer.emp_home" />
         <activity android:name=".employer.Emp_signUp" />
-        <activity android:name=".employer.Emp_details"></activity>
+        <activity android:name=".employer.Emp_details" />
+        <activity android:name=".employer.JobPost" />
+        <activity android:name=".employer.JobPostDiscussion" />
+        <activity
+            android:name=".Main2Activity"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

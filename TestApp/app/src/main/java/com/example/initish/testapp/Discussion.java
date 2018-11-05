@@ -30,7 +30,6 @@ import java.util.List;
 
 public class Discussion extends AppCompatActivity implements IMainActivity{
 
-
     FloatingActionButton fab;
     private RecyclerView mRecyclerView;
     List<Item> itemList=new ArrayList<>();

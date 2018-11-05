@@ -55,16 +55,20 @@ public class Post_discussion extends AppCompatActivity {
         db.collection("posts/"+title_id+"/comments").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+
                 if(!queryDocumentSnapshots.isEmpty()){
+
                     List<DocumentSnapshot> list=queryDocumentSnapshots.getDocuments();
                     for(DocumentSnapshot d:list){
                         Comment comment=d.toObject(Comment.class);
                         commentsList.add(comment);
+
                     }
 
                     adapter=new CommentAdapter(Post_discussion.this,commentsList);
                     comment_rcview.setAdapter(adapter);
                 }
+
                 adapter.notifyDataSetChanged();
             }
         });
