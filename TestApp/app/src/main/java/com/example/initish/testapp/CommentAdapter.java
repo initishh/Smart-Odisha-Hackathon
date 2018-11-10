@@ -69,6 +69,4 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.viewHold
             comment_user=itemView.findViewById(R.id.comment_user);
         }
     }
-
-
 }

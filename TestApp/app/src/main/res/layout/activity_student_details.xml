@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Profile">
+    tools:context=".StudentDetails">
 
     <TableLayout
         android:id="@+id/table"
@@ -15,93 +15,79 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Profile"
             android:layout_margin="@dimen/activity_horizontal_margin"
+            android:text="Enter your details"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_height="100dp"
-            android:layout_width="100dp"
-            />
-
-        <TextView
+        <EditText
             android:layout_margin="@dimen/activity_horizontal_margin"
+
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
+            android:hint="Name"
             android:id="@+id/name"
-            android:textSize="15sp"
             />
 
-        <TextView
+        <EditText
             android:layout_margin="@dimen/activity_horizontal_margin"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:id="@+id/dob"
             android:inputType="date"
-            android:textSize="15sp"
-
+            android:hint="Date of Birth (ddmmyyyy)"
             />
-        <TextView
+        <EditText
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:layout_margin="@dimen/activity_horizontal_margin"
-            android:textSize="15sp"
 
             android:id="@+id/locality"
+            android:hint="Locality"
             />
 
-        <TextView
+        <EditText
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:layout_margin="@dimen/activity_horizontal_margin"
 
-            android:textSize="15sp"
             android:id="@+id/city"
+            android:hint="City"
             />
 
-        <TextView
+        <EditText
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/activity_horizontal_margin"
             android:layout_width="wrap_content"
-            android:textSize="15sp"
             android:id="@+id/district"
+            android:hint="District"
             />
 
-        <TextView
+        <EditText
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/activity_horizontal_margin"
             android:layout_width="wrap_content"
-            android:textSize="15sp"
             android:id="@+id/state"
+            android:hint="State"
             />
 
 
-        <TextView
+        <EditText
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:id="@+id/pin"
             android:layout_margin="@dimen/activity_horizontal_margin"
-            android:textSize="15sp"
             android:inputType="number"
+            android:hint="Enter your pin code"
             />
-        <TextView
+        <EditText
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:inputType="number"
             android:id="@+id/phone"
-            android:textSize="15sp"
             android:layout_margin="@dimen/activity_horizontal_margin"
+            android:hint="Phone No."
             />
 
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:textSize="15sp"
-            android:inputType="textEmailAddress"
-            android:id="@+id/email"
-            android:layout_margin="@dimen/activity_horizontal_margin"
-            />
 
         <TextView android:text="                        "
             android:layout_height="wrap_content"
@@ -111,38 +97,36 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/activity_horizontal_margin"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-            />
-        <TextView
+                  />
+        <EditText
             android:layout_height="wrap_content"
-            android:textSize="15sp"
             android:layout_width="wrap_content"
             android:id="@+id/edu"
             android:layout_margin="@dimen/activity_horizontal_margin"
+            android:hint="Yes/no if yes then maximum qualification(10th,12th,diploma etc)"
             />
-        <TextView
+        <EditText
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:id="@+id/train"
-            android:textSize="15sp"
             android:inputType="number"
             android:layout_margin="@dimen/activity_horizontal_margin"
+            android:hint="No. of training programs attended"
             />
-        <TextView
+        <EditText
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:textSize="15sp"
             android:id="@+id/skills"
             android:layout_margin="@dimen/activity_horizontal_margin"
+            android:hint="Enter your skills"
             />
-
-        <TextView
+        <EditText
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:textSize="15sp"
-            android:id="@+id/exp"
+            android:id="@+id/expp"
             android:layout_margin="@dimen/activity_horizontal_margin"
+            android:hint="Experiance"
             />
-
         <TextView android:text="                        "
             android:layout_height="wrap_content"
             android:layout_width="match_parent"/>
@@ -151,14 +135,16 @@
             android:layout_width="match_parent"/>
 
         <Button
-            android:id="@+id/logout"
-            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:id="@+id/candidatebutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Logout"
-            android:textAllCaps="true"
-            />
-
+            android:layout_gravity="center"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginBottom="0dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:paddingLeft="10dp"
+            android:text="Submit Details" />
     </TableLayout>
 
 </ScrollView>

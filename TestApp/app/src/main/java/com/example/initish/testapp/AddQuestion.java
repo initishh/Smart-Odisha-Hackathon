@@ -2,11 +2,9 @@ package com.example.initish.testapp;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,15 +13,10 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class AddQuestion extends AppCompatActivity {
 
@@ -32,6 +25,7 @@ public class AddQuestion extends AppCompatActivity {
     public static final String TAG = "Title";
     EditText title,description;
     ProgressBar loading;
+    Context context;
 
     FirebaseFirestore db=FirebaseFirestore.getInstance();
     DocumentReference mDocref=db.collection("posts").document();
@@ -45,7 +39,7 @@ public class AddQuestion extends AppCompatActivity {
             getSupportActionBar().setTitle("");
         }
 
-        title=findViewById(R.id.title);
+        title=findViewById(R.id.jobtitle);
         description=findViewById(R.id.description);
         loading=findViewById(R.id.loading);
         }
@@ -88,26 +82,30 @@ public class AddQuestion extends AppCompatActivity {
             item1.setDesc(descText);
             item1.setTitle_id(mDocref.getId());
             item1.setUsername(UserName);
+
             mDocref.set(item1).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
 
+                    DocumentReference documentReference=db.collection("posts").document(mDocref.getId())
+                            .collection("comments").document();
+
+                    documentReference.set(new Comment());
                     if(task.isSuccessful()){
-                        mDocref.collection("comments").document();
-                        loading.setVisibility(View.INVISIBLE);
-                        startActivity(new Intent(getApplication(),Discussion.class));
-                        Toast.makeText(getApplicationContext(),"Question has been posted",Toast.LENGTH_SHORT).show();
+
+                         loading.setVisibility(View.INVISIBLE);
+
+                         Intent intent=new Intent(AddQuestion.this,Main2Activity.class);
+                         intent.putExtra("selected_index",2);
+                         startActivity(intent);
+                         Toast.makeText(getApplicationContext(),"Question has been posted",Toast.LENGTH_SHORT).show();
                     }
                     else{
                         Toast.makeText(getApplicationContext(),"Problem here!",Toast.LENGTH_SHORT).show();
                     }
-
                 }
             });
-
         }
         return super.onOptionsItemSelected(item);
     }
-
-
-    }
+}

@@ -10,10 +10,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
-import com.example.initish.testapp.Adapter;
-import com.example.initish.testapp.Discussion;
-import com.example.initish.testapp.Item;
 import com.example.initish.testapp.MainActivity;
 import com.example.initish.testapp.R;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -31,7 +29,9 @@ public class emp_home extends AppCompatActivity {
     RecyclerView recyclerView;
     List<PostItem> postItems=new ArrayList<>();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    RecyclerView.Adapter adapter;
+    JobPostAdapter adapter;
+
+    public emp_home(){}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,6 @@ public class emp_home extends AppCompatActivity {
         }
 
         button_post=findViewById(R.id.button_post);
-
         button_post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,23 +57,25 @@ public class emp_home extends AppCompatActivity {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
 
+                postItems.clear();
+
+                Toast.makeText(emp_home.this,"Job posts here",Toast.LENGTH_SHORT).show();
                 if(!queryDocumentSnapshots.isEmpty()){
                     List<DocumentSnapshot> list=queryDocumentSnapshots.getDocuments();
                     for(DocumentSnapshot d:list)
                     {
                         PostItem postItem=d.toObject(PostItem.class);
-                        postItems.add(postItem);
+
+                        if(postItem.getUserId().equals(FirebaseAuth.getInstance().getUid()))
+                           postItems.add(postItem);
                     }
-
-                    adapter = new JobPostAdapter(emp_home.this,postItems);
-                    recyclerView.setAdapter(adapter);
                 }
-
                 adapter.notifyDataSetChanged();
             }
-
         });
 
+        adapter = new JobPostAdapter(emp_home.this,postItems);
+        recyclerView.setAdapter(adapter);
     }
 
     @Override
@@ -87,7 +88,6 @@ public class emp_home extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-
     }
 
     @Override
@@ -97,5 +97,4 @@ public class emp_home extends AppCompatActivity {
         menuInflater.inflate(R.menu.sign_out_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
-
 }

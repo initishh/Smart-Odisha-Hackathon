@@ -1,6 +1,8 @@
 package com.example.initish.testapp.employer;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.initish.testapp.MainActivity;
 import com.example.initish.testapp.R;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -39,6 +42,7 @@ public class EmployerLogin extends AppCompatActivity {
     FirebaseAuth mAuth;
     GoogleSignInClient mGoogleSignInClient;
     Button emp_signin,emp_signup;
+    public SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,11 +54,14 @@ public class EmployerLogin extends AppCompatActivity {
         emp_pass=findViewById(R.id.emp_pass);
         emp_signup=findViewById(R.id.emp_signup);
 
+        preferences=this.getSharedPreferences("com.example.initish.testapp.employer",Context.MODE_PRIVATE);
+
         SignInButton signin_Button = findViewById(R.id.signin_button);
         mAuth = FirebaseAuth.getInstance();
 
         if (mAuth.getCurrentUser() != null) {
             finish();
+            Toast.makeText(this, "Here at 1", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(getApplicationContext(), emp_home.class));
         }
 
@@ -90,9 +97,17 @@ public class EmployerLogin extends AppCompatActivity {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account);
-                startActivity(new Intent(getApplicationContext(), Emp_details.class));
+                if(preferences.getInt("value",0)==1){
+                    startActivity(new Intent(getApplicationContext(), emp_home.class));}
+                else
+                {
+                    startActivity(new Intent(getApplicationContext(), Emp_details.class));
+                    preferences.edit().putInt("value",1).apply();
+                }
 
-            } catch (ApiException e) {
+
+            }
+            catch (ApiException e) {
 
                 Log.w("Message", "Google sign in failed", e);
                 Toast.makeText(EmployerLogin.this, "Authentication Failed", Toast.LENGTH_SHORT).show();
@@ -111,7 +126,8 @@ public class EmployerLogin extends AppCompatActivity {
                             Log.d("info", "signInWithCredential:success");
                             finish();
                             FirebaseUser user = mAuth.getCurrentUser();
-                            startActivity(new Intent(getApplicationContext(),Emp_details.class));
+                            Toast.makeText(EmployerLogin.this, "Here at 3", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(),emp_home.class));
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("info", "signInWithCredential:failure", task.getException());
@@ -121,7 +137,6 @@ public class EmployerLogin extends AppCompatActivity {
                         // ...
                     }
                 });
-
     }
     public void onClick(View v) {
         switch (v.getId()) {
@@ -151,6 +166,7 @@ public class EmployerLogin extends AppCompatActivity {
                             Log.d("Message", "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             Intent intent=new Intent(getApplicationContext(),emp_home.class);
+                            Toast.makeText(EmployerLogin.this, "Here at 4", Toast.LENGTH_SHORT).show();
                             startActivity(intent);
                         } else {
                             Log.w("Message", "signInWithEmail:failure", task.getException());

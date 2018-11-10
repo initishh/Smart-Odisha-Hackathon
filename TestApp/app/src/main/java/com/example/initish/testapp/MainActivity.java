@@ -14,6 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.initish.testapp.employer.Emp_details;
 import com.example.initish.testapp.employer.EmployerLogin;
 import com.example.initish.testapp.employer.emp_home;
 import com.google.android.gms.auth.api.Auth;
@@ -35,7 +36,6 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 public class MainActivity extends AppCompatActivity {
 
-
     private static final int RC_SIGN_IN = 1;
     TextView registeremp;
     GoogleApiClient mGoogleApiClient;
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     GoogleSignInClient mGoogleSignInClient;
     Button button,register;
     FirebaseAuth.AuthStateListener mAuthListener;
-    public SharedPreferences sharedPreferences;
+    public SharedPreferences sharedPreferences,sharedPreferences2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         register=findViewById(R.id.register);
 
         sharedPreferences=this.getSharedPreferences("com.example.initish.testapp",Context.MODE_PRIVATE);
-
+        sharedPreferences2=this.getSharedPreferences("com.example.initish.testapp",Context.MODE_PRIVATE);
 
         progressBarLogin=findViewById(R.id.progressBarLogin);
         SignInButton signInButton = findViewById(R.id.signin_button);
@@ -72,7 +72,9 @@ public class MainActivity extends AppCompatActivity {
             if(sharedPreferences.getInt("activity",0)==1)
              startActivity(new Intent(getApplicationContext(), Main2Activity.class));
            else
+            {
                startActivity(new Intent(getApplicationContext(),emp_home.class));
+            }
         }
 
 
@@ -130,7 +132,15 @@ public class MainActivity extends AppCompatActivity {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account);
                 sharedPreferences.edit().putInt("activity",1).apply();
-                startActivity(new Intent(getApplicationContext(), Main2Activity.class));
+                if(sharedPreferences2.getInt("value",0)==1){
+                    startActivity(new Intent(getApplicationContext(), Main2Activity.class));
+                }
+                else
+                {
+                    startActivity(new Intent(getApplicationContext(), StudentDetails.class));
+                    sharedPreferences2.edit().putInt("value",1).apply();
+                }
+
             } catch (ApiException e) {
 
                 Log.w("Message", "Google sign in failed", e);
@@ -162,7 +172,6 @@ public class MainActivity extends AppCompatActivity {
                         // ...
                     }
                 });
-
     }
 
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
@@ -183,8 +192,6 @@ public class MainActivity extends AppCompatActivity {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
-
-
 
    public void login(View view){
 
@@ -214,5 +221,4 @@ public class MainActivity extends AppCompatActivity {
                    }
                });
    }
-
 }

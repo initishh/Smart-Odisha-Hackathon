@@ -83,21 +83,21 @@ public class Post_discussion extends AppCompatActivity {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
 
-                    List<DocumentSnapshot> list=queryDocumentSnapshots.getDocuments();
-                    for(DocumentSnapshot d:list)
-                    {
-                        Item item=d.toObject(Item.class);
-                        if(title_id.equals(item.getTitle_id())){
+                List<DocumentSnapshot> list=queryDocumentSnapshots.getDocuments();
+                for(DocumentSnapshot d:list)
+                {
+                    Item item=d.toObject(Item.class);
+                    if(title_id.equals(item.getTitle_id())){
 
-                           title_text.setText(item.getQuery());
-                           desc_text.setText(item.getDesc());
-                           usertext.setText(item.getUsername());
-                            Picasso.get()
-                                    .load(item.getPhoto_url())
-                                    .into(ask_pic);
+                        title_text.setText(item.getQuery());
+                        desc_text.setText(item.getDesc());
+                        usertext.setText(item.getUsername());
+                        Picasso.get()
+                                .load(item.getPhoto_url())
+                                .into(ask_pic);
 
-                        }
                     }
+                }
 
             }
 
@@ -107,9 +107,9 @@ public class Post_discussion extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                  Intent intent=new Intent(Post_discussion.this,Writ.class);
-                  intent.putExtra("TITLEID",title_id);
-                  startActivity(intent);
+                Intent intent=new Intent(Post_discussion.this,Writ.class);
+                intent.putExtra("TITLEID",title_id);
+                startActivity(intent);
             }
         });
 

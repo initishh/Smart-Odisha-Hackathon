@@ -34,17 +34,18 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Discussion extends Fragment {
+public class Ask extends Fragment {
 
     FloatingActionButton fab;
     private RecyclerView mRecyclerView;
     List<Item> itemList=new ArrayList<>();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     ProgressBar progressBar;
+
     RecyclerView.Adapter adapter;
 
     Context context;
-    public Discussion() {
+    public Ask() {
 
     }
 
@@ -58,6 +59,16 @@ public class Discussion extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.activity_discussion,container,false);
+        fab=rootView.findViewById(R.id.floatingActionButton);
+
+            fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(),AddQuestion.class);
+                startActivity(intent);
+            }
+        });
+
         db.collection("posts").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
@@ -82,12 +93,10 @@ public class Discussion extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mRecyclerView=(RecyclerView) view.findViewById(R.id.rc_view);
+        mRecyclerView=getView().findViewById(R.id.rc_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         adapter = new Adapter(getActivity(),itemList);
         mRecyclerView.setAdapter(adapter);
     }
-
-
 }

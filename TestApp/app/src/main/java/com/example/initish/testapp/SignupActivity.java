@@ -79,7 +79,7 @@ public class SignupActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser currentUser) {
 
-        Intent intent=new Intent(this,Discussion.class);
+        Intent intent=new Intent(this,Ask.class);
         startActivity(intent);
     }
 

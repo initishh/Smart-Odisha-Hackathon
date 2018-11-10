@@ -8,7 +8,7 @@
 
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/comp_name"
         android:layout_width="268dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -17,7 +17,7 @@
         android:ems="10"
         android:hint="Enter company name if exists"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editText2"
+        app:layout_constraintBottom_toTopOf="@+id/comp_spec"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.375"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +36,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/comp_spec"
         android:layout_width="268dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -44,14 +44,14 @@
         android:ems="10"
         android:hint="Specialization"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editText3"
+        app:layout_constraintBottom_toTopOf="@+id/comp_time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.31"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/comp_name" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/comp_time"
         android:layout_width="268dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -59,14 +59,14 @@
         android:ems="10"
         android:hint="Years in Market"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editText6"
+        app:layout_constraintBottom_toTopOf="@+id/comp_add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.298"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/comp_spec" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/comp_con"
         android:layout_width="268dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -74,14 +74,14 @@
         android:ems="10"
         android:hint="Contact No."
         android:inputType="phone"
-        app:layout_constraintBottom_toTopOf="@+id/editText5"
+        app:layout_constraintBottom_toTopOf="@+id/comp_mail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.31"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText6" />
+        app:layout_constraintTop_toBottomOf="@+id/comp_add" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/comp_mail"
         android:layout_width="268dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -89,19 +89,20 @@
         android:ems="10"
         android:hint="Email if any"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/companyDetails"
+        app:layout_constraintBottom_toTopOf="@+id/details"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText4" />
+        app:layout_constraintTop_toBottomOf="@+id/comp_con" />
 
     <Button
-        android:id="@+id/companyDetails"
+        android:id="@+id/details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
+        android:onClick="submit"
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -109,7 +110,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editText6"
+        android:id="@+id/comp_add"
         android:layout_width="268dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -117,9 +118,9 @@
         android:ems="10"
         android:hint="Address"
         android:inputType="textPostalAddress"
-        app:layout_constraintBottom_toTopOf="@+id/editText4"
+        app:layout_constraintBottom_toTopOf="@+id/comp_con"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.31"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+        app:layout_constraintTop_toBottomOf="@+id/comp_time" />
 </android.support.constraint.ConstraintLayout>

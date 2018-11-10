@@ -6,27 +6,13 @@ import java.util.Date;
 
 public class PostItem {
 
-    String address,desc,exp,salary,vacancy,title,skill,userId;
+    String address,desc,exp,salary,vacancy,title,skill,userId,fileId;
     private @ServerTimestamp Date time;
 
     public PostItem() {
     }
 
-    public PostItem(String address, String desc, String exp, String salary, String vacancy, String title, String skill, String userId, Date time) {
-
-        this.address = address;
-        this.desc = desc;
-        this.exp = exp;
-        this.salary = salary;
-        this.vacancy = vacancy;
-        this.title = title;
-        this.skill = skill;
-        this.userId = userId;
-        this.time = time;
-    }
-
     public String getAddress() {
-
         return address;
     }
 
@@ -90,11 +76,33 @@ public class PostItem {
         this.userId = userId;
     }
 
+    public String getFileId() {
+        return fileId;
+    }
+
+    public void setFileId(String fileId) {
+        this.fileId = fileId;
+    }
+
     public Date getTime() {
         return time;
     }
 
     public void setTime(Date time) {
+        this.time = time;
+    }
+
+    public PostItem(String address, String desc, String exp, String salary, String vacancy, String title, String skill, String userId, String fileId, Date time) {
+
+        this.address = address;
+        this.desc = desc;
+        this.exp = exp;
+        this.salary = salary;
+        this.vacancy = vacancy;
+        this.title = title;
+        this.skill = skill;
+        this.userId = userId;
+        this.fileId = fileId;
         this.time = time;
     }
 }

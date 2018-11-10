@@ -1,40 +1,25 @@
 package com.example.initish.testapp;
 
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class Main2Activity extends AppCompatActivity {
 
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
     private SectionsPagerAdapter mSectionsPagerAdapter;
-
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
     private ViewPager mViewPager;
 
     @Override
@@ -42,18 +27,23 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-
-        // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
+
+        tabLayout.getTabAt(0).setIcon(R.drawable.skill);
+        tabLayout.getTabAt(1).setIcon(R.drawable.job);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ask);
+        tabLayout.getTabAt(3).setIcon(R.drawable.profile);
+
+        int n=getIntent().getIntExtra("selected_index",0);
+        Log.i("Tag intent is",Integer.toString(n));
+        mViewPager.setCurrentItem(n);
+
     }
 
 
@@ -135,8 +125,8 @@ public class Main2Activity extends AppCompatActivity {
                     Jobss jobss=new Jobss();
                     return jobss;
                 case 2:
-                    Discussion discussion=new Discussion();
-                    return discussion;
+                    Ask ask =new Ask();
+                    return ask;
                 case 3:
                     Profile profile=new Profile();
                     return profile;
@@ -147,7 +137,6 @@ public class Main2Activity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
             return 4;
         }
     }

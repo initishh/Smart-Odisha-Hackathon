@@ -108,4 +108,5 @@
         app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/jobVacancy" />
+
 </android.support.constraint.ConstraintLayout>

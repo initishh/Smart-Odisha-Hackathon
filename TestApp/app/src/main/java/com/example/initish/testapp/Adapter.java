@@ -41,7 +41,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.myViewHolder> {
         this.items = items;
     }
 
-
+    
     @NonNull
     @Override
     public myViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
