@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".trainers.PostTraining">
+
+    <EditText
+        android:id="@+id/course_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Name of the Course"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/course_sector"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <EditText
+        android:id="@+id/course_sector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:hint="Name of the sector"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/course_duration"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/course_name" />
+
+    <EditText
+        android:id="@+id/course_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Duration of Course"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/course_elig"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/course_sector" />
+
+    <EditText
+        android:id="@+id/course_elig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Eligibility"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/course_sub"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/course_duration" />
+
+    <EditText
+        android:id="@+id/course_sub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="17dp"
+        android:ems="10"
+        android:hint="Submission Date"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/post_submit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/course_elig" />
+
+    <Button
+        android:id="@+id/post_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="99dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="101dp"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/course_sub"
+        app:layout_constraintTop_toBottomOf="@+id/course_sub" />
+
+</android.support.constraint.ConstraintLayout>

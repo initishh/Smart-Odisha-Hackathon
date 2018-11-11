@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Profile">
+
+    <TableLayout
+        android:id="@+id/table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profile"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_height="100dp"
+            android:layout_width="100dp"
+            />
+
+        <TextView
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/name"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/dob"
+            android:inputType="date"
+            android:textSize="15sp"
+
+            />
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:textSize="15sp"
+
+            android:id="@+id/locality"
+            />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+
+            android:textSize="15sp"
+            android:id="@+id/city"
+            />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:layout_width="wrap_content"
+            android:textSize="15sp"
+            android:id="@+id/district"
+            />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:layout_width="wrap_content"
+            android:textSize="15sp"
+            android:id="@+id/state"
+            />
+
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/pin"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:textSize="15sp"
+            android:inputType="number"
+            />
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:inputType="number"
+            android:id="@+id/phone"
+            android:textSize="15sp"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="15sp"
+            android:inputType="textEmailAddress"
+            android:id="@+id/email"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            />
+
+        <TextView android:text="                        "
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"/>
+        <TextView android:text="Educational Background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            />
+        <TextView
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:id="@+id/edu"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            />
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/train"
+            android:textSize="15sp"
+            android:inputType="number"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            />
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="15sp"
+            android:id="@+id/skills"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="15sp"
+            android:id="@+id/exp"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            />
+
+        <TextView android:text="                        "
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"/>
+        <TextView android:text="                        "
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"/>
+
+        <Button
+            android:id="@+id/logout"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:textAllCaps="true"
+            />
+
+    </TableLayout>
+
+</ScrollView>
