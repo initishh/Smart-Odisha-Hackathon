@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FeedbackActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/currentCompany"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="Which company are you working for now?"
+            android:autoSizeTextType="uniform"
+            />
+
+        <EditText
+            android:id="@+id/currentCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:hint="Which city are you in currently?"/>
+
+
+        <EditText
+            android:id="@+id/currentReview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:inputType="number"
+            android:layout_margin="10dp"
+            android:hint="Please rate job's working condition in 1 - 10"/>
+
+        <EditText
+            android:id="@+id/currentSal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:inputType="number"
+            android:hint="How much are you earning now ?"/>
+
+        <EditText
+            android:id="@+id/satisfaction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:hint="Are you satisfied with your job (YES OR NO)"/>
+
+        <EditText
+            android:id="@+id/currentJobDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:hint="Would you like to share something about your company....."/>
+
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SUBMIT YOUR FORM"/>
+
+    </LinearLayout>
+
+
+
+</ScrollView>

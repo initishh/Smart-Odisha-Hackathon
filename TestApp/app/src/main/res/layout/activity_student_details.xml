@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StudentDetails">
+
+    <TableLayout
+        android:id="@+id/table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:text="Enter your details"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+        <EditText
+            android:layout_margin="@dimen/activity_horizontal_margin"
+
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:hint="Name"
+            android:id="@+id/name"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_margin="8dp"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:hint="DATE(DD)"
+                android:id="@+id/dobdd"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/"
+                android:textSize="20sp"/>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:hint="MONTH(MM)"
+                android:id="@+id/dobmm"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/"
+                android:textSize="20sp"/>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:hint="YEAR(YY)"
+                android:id="@+id/dobyy"/>
+
+        </LinearLayout>
+
+
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+
+            android:id="@+id/city"
+            android:hint="City"
+            />
+
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:layout_width="wrap_content"
+            android:id="@+id/district"
+            android:hint="District"
+            />
+
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:layout_width="wrap_content"
+            android:id="@+id/state"
+            android:hint="State"
+            />
+
+
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/pin"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:inputType="number"
+            android:hint="Enter your pin code"
+            />
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:inputType="number"
+            android:id="@+id/phone"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:hint="Phone No."
+            />
+
+
+        <TextView android:text="                        "
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"/>
+        <TextView android:text="Educational Background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            />
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/edu"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:hint="Yes/no if yes then maximum qualification(10th,12th,diploma etc)"
+            />
+
+
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/train"
+            android:inputType="number"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:hint="No. of training programs attended"
+            />
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/skills"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:hint="Enter your skills"
+            />
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/expp"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:hint="Experience"
+            />
+        <TextView android:text="                        "
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"/>
+        <TextView android:text="                        "
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"/>
+
+        <Button
+            android:id="@+id/candidatebutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginBottom="0dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:paddingLeft="10dp"
+            android:text="Submit Details" />
+    </TableLayout>
+
+</ScrollView>

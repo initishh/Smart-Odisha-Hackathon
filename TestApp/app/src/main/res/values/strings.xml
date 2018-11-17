@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SKILLED</string>
+    <string name="title_activity_main2">MainActivity</string>
+    <string name="tab_text_1">Conduct</string>
+    <string name="tab_text_2">Ongoing</string>
+    <string name="tab_text_3">Finished</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_training_centre_home">TrainingCentreHome</string>
+    <string name="title_activity_track_profile">TrackProfile</string>
+</resources>
