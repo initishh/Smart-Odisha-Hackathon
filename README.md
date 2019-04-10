@@ -4,4 +4,3 @@ The app uses Material Design for UI and Firebase as its backend.
 
 Simply clone the app and run the following in Android Studio.
 
-![](TestApp/skilled1.png)
